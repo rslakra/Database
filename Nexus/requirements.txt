@@ -1,0 +1,3 @@
+# Core — no required dependencies (stdlib only)
+# Optional Excel connector:
+openpyxl>=3.1

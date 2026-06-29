@@ -46,7 +46,7 @@ Or connect explicitly:
 mysql -u root -p
 ```
 
-Then run SQL from [`../Schemas/GrantPermissions.sql`](../Schemas/GrantPermissions.sql) to create application users. Model those grants with `Access` in [`../database/access.py`](../database/access.py).
+Then run SQL from [`../Schemas/GrantPermissions.sql`](../Schemas/GrantPermissions.sql) to create application users. Model those grants with `Access` in [`../Nexus/catalog/access.py`](../Nexus/catalog/access.py).
 
 ## Security
 

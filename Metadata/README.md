@@ -16,32 +16,22 @@ Metadata describes the database as a whole, for example:
 
 ## Python model
 
-A stub lives in [`../database/metadata.py`](../database/metadata.py):
+Implemented in [`../Nexus/catalog/metadata.py`](../Nexus/catalog/metadata.py) and attached to `MultiModelDatabase.metadata`:
 
 ```python
-class Metadata:
-    pass
-```
+from catalog.metadata import Metadata
 
-Planned shape (not implemented yet):
-
-```python
-Metadata(
-    name="Animal",
-    tables=[pets_table],           # list[Table]
-    access_rules=[...],            # list[Access]
-    charset="utf8mb4",
-)
+Metadata(name="Animal", tables=[...], collections=[...], access_rules=[...])
 ```
 
 ## Populating metadata
 
 1. **From SQL scripts** — Parse `Schemas/*.sql` for database name and `CREATE TABLE` blocks.
 2. **From a live server** — Query `information_schema` or use `SHOW CREATE TABLE`.
-3. **By hand** — Assemble `Table`, `Access`, and catalog fields after building objects per [`../database/README.md`](../database/README.md).
+3. **By hand** — Assemble `Table`, `Access`, and catalog fields after building objects per [`../Nexus/README.md`](../Nexus/README.md).
 
 ## Related
 
 - Schema DDL: [`../Schemas/README.md`](../Schemas/README.md)
-- Object model: [`../database/README.md`](../database/README.md)
+- Object model: [`../Nexus/README.md`](../Nexus/README.md)
 - Row data (not catalog): [`../Data/README.md`](../Data/README.md)

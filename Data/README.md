@@ -13,8 +13,8 @@ Place for row-level data separate from DDL in [`../Schemas/`](../Schemas/). Toda
 ## What does not belong here
 
 - `CREATE TABLE` and constraints → [`../Schemas/`](../Schemas/)
-- Column definitions and types → [`../database/attributes.py`](../database/attributes.py)
-- User grants → [`../Schemas/GrantPermissions.sql`](../Schemas/GrantPermissions.sql) or [`../database/access.py`](../database/access.py)
+- Column definitions and types → [`../Nexus/catalog/column.py`](../Nexus/catalog/column.py), [`../Nexus/datatype/`](../Nexus/datatype/)
+- User grants → [`../Schemas/GrantPermissions.sql`](../Schemas/GrantPermissions.sql) or [`../Nexus/catalog/access.py`](../Nexus/catalog/access.py)
 
 ## Current sample data (in Schemas)
 
@@ -68,5 +68,5 @@ Import with MySQL `LOAD DATA LOCAL INFILE` or a small script that builds `Record
 
 ## Related
 
-- Object model: [`../database/README.md`](../database/README.md)
+- Object model: [`../Nexus/README.md`](../Nexus/README.md)
 - Schema scripts: [`../Schemas/README.md`](../Schemas/README.md)

@@ -1,6 +1,6 @@
 # SQL schemas
 
-MySQL-style scripts for creating databases, tables, seed data, and user privileges. These are the source scripts used for testing; the Python objects in [`../database/`](../database/) mirror the same concepts.
+MySQL-style scripts for creating databases, tables, seed data, and user privileges. These are the source scripts used for testing; the Python objects in [`../Nexus/`](../Nexus/) mirror the same concepts and can be loaded into the multi-model engine.
 
 ## Scripts
 
@@ -29,7 +29,7 @@ MySQL-style scripts for creating databases, tables, seed data, and user privileg
 
 - Shell-oriented notes for connecting as `root`
 - `CREATE USER` and `GRANT ALL PRIVILEGES` example
-- Maps to [`../database/access.py`](../database/access.py) `Access` objects
+- Maps to [`../Nexus/catalog/access.py`](../Nexus/catalog/access.py) `Access` objects
 
 ## Running a script
 
@@ -53,4 +53,4 @@ For grants, run the SQL statements inside `GrantPermissions.sql` interactively o
 | `CREATE PROCEDURE` | `Procedure` |
 | `GRANT` / `CREATE USER` | `Access` |
 
-See [`../database/README.md`](../database/README.md) for population examples.
+See [`../Nexus/README.md`](../Nexus/README.md) for population examples and multi-model usage.

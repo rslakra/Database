@@ -1,27 +1,37 @@
 # Databases
 
-Sample relational database scripts and a Python object model for describing schemas, data, access control, and metadata. Used for learning and testing MySQL-style DDL/DML.
+Sample relational database scripts and **Nexus** — a Python multi-model database that handles both SQL tables and NoSQL documents. Used for learning, testing, and exploring hybrid RDBMS architecture.
 
 ## Repository layout
 
 | Path | Purpose |
 |------|---------|
 | [`Schemas/`](Schemas/) | SQL scripts — `CREATE DATABASE`, tables, inserts, grants |
-| [`database/`](database/) | Python classes that mirror RDBMS concepts |
+| [`Nexus/`](Nexus/) | Multi-model database engine (SQL + NoSQL) and object model |
 | [`Data/`](Data/) | Row data exports or seed files (optional; inserts live in `Schemas/` today) |
 | [`Metadata/`](Metadata/) | Database catalog / introspection artifacts (reserved) |
 | [`MySQL/`](MySQL/) | Client configuration (`my.cnf`) |
 
 ## Quick start
 
+### MySQL scripts (external server)
+
 1. Configure credentials — see [`MySQL/README.md`](MySQL/README.md).
-2. Run a schema script against MySQL:
+2. Run a schema script:
 
    ```bash
    mysql -u root -p < Schemas/Animal.sql
    ```
 
-3. Explore the Python model — see [`database/README.md`](database/README.md).
+### Nexus (in-process multi-model engine)
+
+```bash
+cd Nexus
+python3 examples/demo.py
+python3 examples/connectors_demo.py
+```
+
+See [`Nexus/README.md`](Nexus/README.md) for full architecture and package map.
 
 ## Sample databases
 
@@ -35,17 +45,18 @@ Sample relational database scripts and a Python object model for describing sche
 ## How the pieces fit together
 
 ```
-Schemas/*.sql          →  DDL/DML on a live server
+Schemas/*.sql     →  DDL/DML on MySQL (production-style testing)
        ↓
-database/*.py          →  in-memory representation (Table, Record, …)
+Nexus/            →  multi-model engine (SQL + NoSQL, shared storage)
        ↓
-Data/                  →  optional exports or bulk seed files
-Metadata/              →  optional catalog snapshots (names, types, grants)
+Data/             →  optional exports or bulk seed files
+Metadata/         →  optional catalog snapshots
 ```
 
-SQL scripts define the source of truth today. The `database` package documents how each RDBMS concept maps to Python objects and how to populate them from those scripts.
+- **Schemas/** — reference SQL for a traditional RDBMS.
+- **Nexus/** — build your own hybrid database: unified storage, dual query engines, WAL, MVCC, schema manager.
 
 ## Requirements
 
 - MySQL (or compatible server) for running `Schemas/` scripts
-- Python 3.10+ to import the `database` package
+- Python 3.10+ for Nexus

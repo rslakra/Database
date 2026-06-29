@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nexus"
+version = "0.3.0"
+description = "Multi-model database with SQL, documents, and data connectors"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+excel = ["openpyxl>=3.1"]
+all = ["openpyxl>=3.1"]
+
+[tool.setuptools]
+py-modules = ["database", "engine"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = [
+    "catalog*",
+    "relational*",
+    "document*",
+    "datatype*",
+    "storage*",
+    "index*",
+    "parser*",
+    "planner*",
+    "executor*",
+    "transaction*",
+    "validator*",
+    "dataio*",
+    "connectors*",
+]
