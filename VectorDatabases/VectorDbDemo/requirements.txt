@@ -1,0 +1,13 @@
+chromadb>=0.4.15,<0.5
+posthog>=3.0,<4.0
+langchain>=0.1.0,<0.2
+langchain-core>=0.1.52,<0.2
+langchain-community
+langchain-text-splitters
+tiktoken
+sentence-transformers
+transformers
+python-dotenv
+overrides
+jupyter
+ipykernel

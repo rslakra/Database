@@ -1,0 +1,17 @@
+services:
+  chromadb:
+    # Official Chroma image (chromadb org on Docker Hub):
+    # https://docs.trychroma.com/guides/deploy/docker
+    image: chromadb/chroma:1.5.3
+    container_name: chromadb
+    restart: unless-stopped
+    volumes:
+      - ./chroma-data:/data
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v2/heartbeat"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 10s

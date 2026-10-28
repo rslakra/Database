@@ -1,0 +1,8 @@
+.env
+venv/
+chroma-local-db/
+chroma-smoke-test/
+*.zip
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
