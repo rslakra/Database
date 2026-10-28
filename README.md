@@ -1,4 +1,4 @@
-# Databases
+# Database
 
 Sample relational database scripts and **Nexus** — a Python multi-model database that handles both SQL tables and NoSQL documents. Used for learning, testing, and exploring hybrid RDBMS architecture.
 
